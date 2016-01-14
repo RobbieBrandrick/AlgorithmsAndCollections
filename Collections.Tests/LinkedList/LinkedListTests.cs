@@ -111,6 +111,24 @@ namespace Collections.Tests.LinkedList
             }
 
             [Fact]
+            public void MustRemoveFromFrontkWhenOnlyOneItemIsInList()
+            {
+
+                LinkedList<int> sut = new LinkedList<int>();
+
+                sut.PushBack(1);
+                Assert.Equal(1, sut.Back());
+                Assert.Equal(1, sut.Front());
+                Assert.Equal(1, sut.Count);
+
+                sut.RemoveFront();
+                Assert.Equal(0, sut.Count);
+                Assert.Throws<InvalidOperationException>(() => sut.Front());
+                Assert.Throws<InvalidOperationException>(() => sut.Back());
+
+            }
+
+            [Fact]
             public void MustThrowWhenNoElementsExist()
             {
                 var sut = new LinkedList<bool>();
@@ -147,6 +165,24 @@ namespace Collections.Tests.LinkedList
                 Assert.Equal(1, sut.Back());
                 Assert.Equal(2, sut.Front());
                 Assert.Equal(2, sut.Count);
+
+            }
+
+            [Fact]
+            public void MustRemoveFromBackWhenOnlyOneItemIsInList()
+            {
+
+                LinkedList<int> sut = new LinkedList<int>();
+
+                sut.PushBack(1);
+                Assert.Equal(1, sut.Back());
+                Assert.Equal(1, sut.Front());
+                Assert.Equal(1, sut.Count);
+
+                sut.RemoveBack();
+                Assert.Equal(0, sut.Count);
+                Assert.Throws<InvalidOperationException>(() => sut.Front());
+                Assert.Throws<InvalidOperationException>(() => sut.Back());
 
             }
 

@@ -111,9 +111,15 @@ namespace Collections.LinkedList
             {
                 throw new InvalidOperationException("There are no elements to remove");
             }
-
-            var oldHead = _head;
-            _head = _head.Next;
+            else if (Count == 1)
+            {
+                _head = null;
+                _tail = null;
+            }
+            else
+            {
+                _head = _head.Next;
+            }
 
             Count--;
 
@@ -136,6 +142,7 @@ namespace Collections.LinkedList
             }
             else
             {
+                
                 LinkedListNode<T> scanner = _head;
 
                 do
@@ -148,8 +155,6 @@ namespace Collections.LinkedList
             }
 
             --Count;
-
-
             
         }
         
