@@ -106,11 +106,18 @@ namespace Collections.LinkedList
         /// </summary>
         public void RemoveFront()
         {
+
+            if (Count == 0)
+            {
+                throw new InvalidOperationException("There are no elements to remove");
+            }
+
             var oldHead = _head;
             _head = _head.Next;
 
             Count--;
-        }
 
+        }
+        
     }
 }

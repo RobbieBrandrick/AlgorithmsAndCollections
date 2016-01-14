@@ -1,4 +1,5 @@
 ﻿using Collections.LinkedList;
+using System;
 using Xunit;
 
 namespace Collections.Tests.LinkedList
@@ -82,8 +83,8 @@ namespace Collections.Tests.LinkedList
 
         public class RemoveFront
         {
-           [Fact]
-           public void MustRemoveFromFrontLinkedList()
+            [Fact]
+            public void MustRemoveFromFrontLinkedList()
             {
 
                 LinkedList<int> sut = new LinkedList<int>();
@@ -102,11 +103,20 @@ namespace Collections.Tests.LinkedList
                 Assert.Equal(3, sut.Back());
                 Assert.Equal(2, sut.Front());
                 Assert.Equal(3, sut.Count);
-            
+
                 sut.RemoveFront();
                 Assert.Equal(3, sut.Back());
                 Assert.Equal(1, sut.Front());
                 Assert.Equal(2, sut.Count);
+            }
+
+            [Fact]
+            public void MustThrowWhenNoElementsExist()
+            {
+                var sut = new LinkedList<bool>();
+
+                var exception = Assert.Throws<InvalidOperationException>(() => sut.RemoveFront());
+                Assert.Equal("There are no elements to remove", exception.Message);
             }
         }
 
