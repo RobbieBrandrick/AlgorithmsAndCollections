@@ -2,6 +2,11 @@
 
 namespace Collections.LinkedList
 {
+    /// <summary>
+    /// A Linked List class that can perform basic operations such 
+    /// as add, remove, find, and enumerate
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public sealed class LinkedList<T>
     {
 
@@ -22,6 +27,7 @@ namespace Collections.LinkedList
             }
 
             return _head.Value;
+
         }
 
         /// <summary>
@@ -37,6 +43,7 @@ namespace Collections.LinkedList
             }
 
             return _tail.Value;
+
         }
 
         /// <summary>
@@ -83,6 +90,15 @@ namespace Collections.LinkedList
 
             _count++;
 
+        }
+
+        /// <summary>
+        /// Removes the node at the front of the linked list
+        /// </summary>
+        public void RemoveFront()
+        {
+            var oldHead = _head;
+            _head = _head.Next;
         }
 
     }

@@ -80,6 +80,32 @@ namespace Collections.Tests.LinkedList
             }
         }
 
+        public class RemoveFront
+        {
+            [Fact]
+           public void MustRemoveFromFrontLinkedList()
+            {
+
+                LinkedList<int> sut = new LinkedList<int>();
+
+                sut.PushBack(1);
+                Assert.Equal(1, sut.Back());
+                Assert.Equal(1, sut.Front());
+
+                sut.PushFront(2);
+                Assert.Equal(1, sut.Back());
+                Assert.Equal(2, sut.Front());
+
+                sut.PushBack(3);
+                Assert.Equal(3, sut.Back());
+                Assert.Equal(2, sut.Front());
+
+                sut.RemoveFront();
+                Assert.Equal(3, sut.Back());
+                Assert.Equal(1, sut.Front());
+            }
+        }
+
         [Fact]
         public void MustPushBackAndPushFront()
         {
