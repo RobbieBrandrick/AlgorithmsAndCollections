@@ -120,6 +120,46 @@ namespace Collections.Tests.LinkedList
             }
         }
 
+        public class RemoveBack
+        {
+            [Fact]
+            public void MustRemoveFromBack()
+            {
+
+                LinkedList<int> sut = new LinkedList<int>();
+
+                sut.PushBack(1);
+                Assert.Equal(1, sut.Back());
+                Assert.Equal(1, sut.Front());
+                Assert.Equal(1, sut.Count);
+
+                sut.PushFront(2);
+                Assert.Equal(1, sut.Back());
+                Assert.Equal(2, sut.Front());
+                Assert.Equal(2, sut.Count);
+
+                sut.PushBack(3);
+                Assert.Equal(3, sut.Back());
+                Assert.Equal(2, sut.Front());
+                Assert.Equal(3, sut.Count);
+
+                sut.RemoveBack();
+                Assert.Equal(1, sut.Back());
+                Assert.Equal(2, sut.Front());
+                Assert.Equal(2, sut.Count);
+
+            }
+
+            [Fact]
+            public void MustThrowWhenNoElementsExist()
+            {
+                var sut = new LinkedList<bool>();
+
+                var exception = Assert.Throws<InvalidOperationException>(() => sut.RemoveBack());
+                Assert.Equal("There are no elements to remove", exception.Message);
+            }
+        }
+
         public class Count
         {
             [Fact]

@@ -118,6 +118,40 @@ namespace Collections.LinkedList
             Count--;
 
         }
+
+        /// <summary>
+        /// Removes the node at the back of the linked list
+        /// </summary>
+        public void RemoveBack()
+        {
+
+            if (Count == 0)
+            {
+                throw new InvalidOperationException("There are no elements to remove");
+            }
+            else if(Count == 1)
+            {
+                _head = null;
+                _tail = null;                
+            }
+            else
+            {
+                LinkedListNode<T> scanner = _head;
+
+                do
+                {
+                    scanner = scanner.Next;                    
+                } while (scanner.Next.Next != null);
+
+                _tail = scanner;
+                _tail.Next = null;
+            }
+
+            --Count;
+
+
+            
+        }
         
     }
 }
