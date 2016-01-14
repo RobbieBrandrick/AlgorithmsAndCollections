@@ -12,7 +12,16 @@ namespace Collections.LinkedList
 
         private LinkedListNode<T> _head = null;
         private LinkedListNode<T> _tail = null;
-        private int _count = 0;
+
+        public LinkedList()
+        {
+            Count = 0;
+        }
+
+        /// <summary>
+        /// The amount of nodes in this container
+        /// </summary>
+        public int Count { get; private set; }
 
         /// <summary>
         /// Return the first Item in the linked list
@@ -21,7 +30,7 @@ namespace Collections.LinkedList
         public T Front()
         {
 
-            if (_count == 0)
+            if (Count == 0)
             {
                 throw new InvalidOperationException("There are no items in the Linked List");
             }
@@ -37,7 +46,7 @@ namespace Collections.LinkedList
         public T Back()
         {
 
-            if (_count == 0)
+            if (Count == 0)
             {
                 throw new InvalidOperationException("There are no items in the Linked List");
             }
@@ -59,12 +68,12 @@ namespace Collections.LinkedList
             _head = item;
             _head.Next = tempNode;
 
-            if(_count == 0)
+            if(Count == 0)
             {
                 _tail = _head;
             }
 
-            _count++;
+            Count++;
 
         }
 
@@ -77,7 +86,7 @@ namespace Collections.LinkedList
 
             var item = new LinkedListNode<T>(value);
             
-            if(_count == 0)
+            if(Count == 0)
             {
                 _head = item;
             } 
@@ -88,7 +97,7 @@ namespace Collections.LinkedList
 
             _tail = item;
 
-            _count++;
+            Count++;
 
         }
 
@@ -99,6 +108,8 @@ namespace Collections.LinkedList
         {
             var oldHead = _head;
             _head = _head.Next;
+
+            Count--;
         }
 
     }

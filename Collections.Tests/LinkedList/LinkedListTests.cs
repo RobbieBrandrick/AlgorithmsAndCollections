@@ -82,7 +82,7 @@ namespace Collections.Tests.LinkedList
 
         public class RemoveFront
         {
-            [Fact]
+           [Fact]
            public void MustRemoveFromFrontLinkedList()
             {
 
@@ -91,18 +91,48 @@ namespace Collections.Tests.LinkedList
                 sut.PushBack(1);
                 Assert.Equal(1, sut.Back());
                 Assert.Equal(1, sut.Front());
+                Assert.Equal(1, sut.Count);
 
                 sut.PushFront(2);
                 Assert.Equal(1, sut.Back());
                 Assert.Equal(2, sut.Front());
+                Assert.Equal(2, sut.Count);
 
                 sut.PushBack(3);
                 Assert.Equal(3, sut.Back());
                 Assert.Equal(2, sut.Front());
-
+                Assert.Equal(3, sut.Count);
+            
                 sut.RemoveFront();
                 Assert.Equal(3, sut.Back());
                 Assert.Equal(1, sut.Front());
+                Assert.Equal(2, sut.Count);
+            }
+        }
+
+        public class Count
+        {
+            [Fact]
+            public void MustIncrementCountForEveryPush()
+            {
+
+                var sut = new LinkedList<string>();
+                var expectedCount = 100;
+
+                for (int i = 0; i < expectedCount; i++)
+                {
+                    if (i % 2 == 0)
+                    {
+                        sut.PushFront("foo");
+                    }
+                    else
+                    {
+                        sut.PushBack("bar");
+                    }
+                }
+
+                Assert.Equal(expectedCount, sut.Count);
+
             }
         }
 
@@ -115,14 +145,17 @@ namespace Collections.Tests.LinkedList
             sut.PushBack(1);
             Assert.Equal(1, sut.Back());
             Assert.Equal(1, sut.Front());
+            Assert.Equal(1, sut.Count);
 
             sut.PushFront(2);
             Assert.Equal(1, sut.Back());
             Assert.Equal(2, sut.Front());
+            Assert.Equal(2, sut.Count);
 
             sut.PushBack(3);
             Assert.Equal(3, sut.Back());
             Assert.Equal(2, sut.Front());
+            Assert.Equal(3, sut.Count);
 
         }
 
