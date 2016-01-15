@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace Collections.LinkedList
 {
@@ -7,7 +9,7 @@ namespace Collections.LinkedList
     /// as add, remove, find, and enumerate
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public sealed class LinkedList<T>
+    public sealed class LinkedList<T> : ICollection<T>
     {
 
         private LinkedListNode<T> _head = null;
@@ -22,6 +24,30 @@ namespace Collections.LinkedList
         /// The amount of nodes in this container
         /// </summary>
         public int Count { get; private set; }
+
+        public object SyncRoot
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        public bool IsSynchronized
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        public bool IsReadOnly
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
 
         /// <summary>
         /// Return the first Item in the linked list
@@ -68,7 +94,7 @@ namespace Collections.LinkedList
             _head = item;
             _head.Next = tempNode;
 
-            if(Count == 0)
+            if (Count == 0)
             {
                 _tail = _head;
             }
@@ -85,11 +111,11 @@ namespace Collections.LinkedList
         {
 
             var item = new LinkedListNode<T>(value);
-            
-            if(Count == 0)
+
+            if (Count == 0)
             {
                 _head = item;
-            } 
+            }
             else
             {
                 _tail.Next = item;
@@ -115,13 +141,13 @@ namespace Collections.LinkedList
             {
                 _head = null;
                 _tail = null;
+                Count--;
             }
             else
             {
                 _head = _head.Next;
+                Count--;
             }
-
-            Count--;
 
         }
 
@@ -135,28 +161,139 @@ namespace Collections.LinkedList
             {
                 throw new InvalidOperationException("There are no elements to remove");
             }
-            else if(Count == 1)
+            else if (Count == 1)
             {
-                _head = null;
-                _tail = null;                
+                Clear();
             }
             else
             {
-                
+
                 LinkedListNode<T> scanner = _head;
 
                 do
                 {
-                    scanner = scanner.Next;                    
+                    scanner = scanner.Next;
                 } while (scanner.Next.Next != null);
 
                 _tail = scanner;
                 _tail.Next = null;
+                --Count;
             }
 
-            --Count;
-            
         }
-        
+
+        /// <summary>
+        /// Adds an item to the back of the list
+        /// </summary>
+        /// <param name="item"></param>
+        public void Add(T item)
+        {
+            PushBack(item);
+        }
+
+        /// <summary>
+        /// Clears the container of any items
+        /// </summary>
+        public void Clear()
+        {
+            _head = null;
+            _tail = null;
+            Count = 0;
+        }
+
+        /// <summary>
+        /// Search the contain to see if an item exists
+        /// </summary>
+        /// <param name="item"></param>
+        /// <returns></returns>
+        public bool Contains(T item)
+        {
+            for (var node = _head; node != null; node = node.Next)
+            {
+                if (node.Value.Equals(item))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        public void CopyTo(T[] array, int arrayIndex)
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Remove the specified item from the list if it exists
+        /// </summary>
+        /// <param name="item"></param>
+        /// <returns></returns>
+        public bool Remove(T item)
+        {
+
+            if (Count == 0)
+            {
+                throw new InvalidOperationException("There are no elements to remove");
+            }
+            else if (Count == 1 && _head.Value.Equals(item))
+            {
+                Clear();
+
+                return true;
+            }
+            else if (_head.Value.Equals(item))
+            {
+                _head = _head.Next;
+                --Count;
+            }
+            else
+            {
+                var scanner = _head;
+
+                while (scanner != null)
+                {
+                    if (scanner.Next != null && scanner.Next.Value.Equals(item))
+                    {
+                        scanner.Next = scanner.Next.Next;
+                        --Count;
+
+                        return true;
+
+                    }                    
+                }                
+
+            }
+
+            return false;
+        }
+
+        /// <summary>
+        /// Iterates through the entire list
+        /// </summary>
+        /// <returns></returns>
+        IEnumerator<T> IEnumerable<T>.GetEnumerator()
+        {
+
+            for (var node = _head; node != null; node = node.Next)
+            {
+                yield return node.Value;
+            }
+
+        }
+
+        /// <summary>
+        /// Iterates through the entire list
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerator GetEnumerator()
+        {
+
+            for (var node = _head; node != null; node = node.Next)
+            {
+                yield return node.Value;
+            }
+
+        }
     }
 }

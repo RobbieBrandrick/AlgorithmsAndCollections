@@ -84,7 +84,7 @@ namespace Collections.Tests.LinkedList
         public class RemoveFront
         {
             [Fact]
-            public void MustRemoveFromFrontLinkedList()
+            public void MustRemoveFromFront()
             {
 
                 LinkedList<int> sut = new LinkedList<int>();
@@ -220,6 +220,109 @@ namespace Collections.Tests.LinkedList
                 Assert.Equal(expectedCount, sut.Count);
 
             }
+        }
+
+        public class Add
+        {
+
+            [Fact]
+            public void IntsMustBePushedToTheBack()
+            {
+
+                LinkedList<int> sut = new LinkedList<int>();
+
+                sut.Add(1);
+                Assert.Equal(1, sut.Back());
+
+                sut.Add(2);
+                Assert.Equal(2, sut.Back());
+
+                sut.Add(3);
+                Assert.Equal(3, sut.Back());
+
+            }
+
+            [Fact]
+            public void StringsMustBePushedToTheBack()
+            {
+
+                LinkedList<string> sut = new LinkedList<string>();
+
+                sut.Add("1");
+                Assert.Equal("1", sut.Back());
+
+                sut.Add("2");
+                Assert.Equal("2", sut.Back());
+
+                sut.Add("3");
+                Assert.Equal("3", sut.Back());
+
+            }
+
+        }
+
+        public class Clear
+        {
+
+            [Fact]
+            public void ThereMustBeNoElementsInTheList()
+            {
+
+                var sut = new LinkedList<int>();
+
+                for (int i = 0; i < 100; i++)
+                {
+                    sut.Add(i);
+                }
+
+                sut.Clear();
+
+                Assert.Equal(0, sut.Count);
+                Assert.Throws<InvalidOperationException>(() => sut.Front());
+                Assert.Throws<InvalidOperationException>(() => sut.Back());
+
+            }
+            
+        }
+
+        public class Remove
+        {
+
+            [Fact]
+            public void MustThrowWhenNoElementsExist()
+            {
+                var sut = new LinkedList<int>();
+
+                var exception = Assert.Throws<InvalidOperationException>(() => sut.Remove(1));
+                Assert.Equal("There are no elements to remove", exception.Message);
+            }
+
+            [Fact]
+            public void MustRemoveAnyElementThatExists()
+            {
+                var sut = new LinkedList<int>();
+
+                sut.PushBack(1);
+                sut.PushBack(2);
+                sut.PushBack(3);
+
+                Assert.True(sut.Remove(2));
+                Assert.Equal(2, sut.Count);
+                Assert.Equal(1, sut.Front());
+                Assert.Equal(3, sut.Back());
+
+                Assert.True(sut.Remove(3));
+                Assert.Equal(1, sut.Count);
+                Assert.Equal(1, sut.Front());
+                Assert.Equal(1, sut.Back());
+
+                Assert.True(sut.Remove(1));
+                Assert.Equal(0, sut.Count);
+                Assert.Throws<InvalidOperationException>(() => sut.Front());
+                Assert.Throws<InvalidOperationException>(() => sut.Back());
+
+            }
+
         }
 
         [Fact]
