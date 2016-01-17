@@ -321,10 +321,29 @@ namespace Collections.Tests.LinkedList
                 Assert.Throws<InvalidOperationException>(() => sut.Front());
                 Assert.Throws<InvalidOperationException>(() => sut.Back());
 
+                sut.PushFront(1);
+                sut.PushBack(2);
+                sut.PushFront(3);
+
+                Assert.True(sut.Remove(1));
+                Assert.Equal(2, sut.Count);
+                Assert.Equal(3, sut.Front());
+                Assert.Equal(2, sut.Back());
+
+                Assert.True(sut.Remove(2));
+                Assert.Equal(1, sut.Count);
+                Assert.Equal(3, sut.Front());
+                Assert.Equal(3, sut.Back());
+
+                Assert.True(sut.Remove(3));
+                Assert.Equal(0, sut.Count);
+                Assert.Throws<InvalidOperationException>(() => sut.Front());
+                Assert.Throws<InvalidOperationException>(() => sut.Back());
+
             }
 
         }
-
+        
         [Fact]
         public void MustPushBackAndPushFront()
         {

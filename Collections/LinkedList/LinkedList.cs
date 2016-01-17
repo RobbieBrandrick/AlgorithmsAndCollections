@@ -242,27 +242,31 @@ namespace Collections.LinkedList
 
                 return true;
             }
-            else if (_head.Value.Equals(item))
-            {
-                _head = _head.Next;
-                --Count;
-            }
-            else
-            {
-                var scanner = _head;
 
-                while (scanner != null)
+            var scanner = _head;
+
+            while (scanner != null)
+            {
+                if (scanner.Next != null && scanner.Next.Value.Equals(item))
                 {
-                    if (scanner.Next != null && scanner.Next.Value.Equals(item))
+
+                    if(scanner.Next == _tail)
                     {
+                        _tail = scanner;
+                        scanner.Next = null;
+                    }
+                    else
+                    {
+
                         scanner.Next = scanner.Next.Next;
-                        --Count;
 
-                        return true;
+                    }
+                    
+                    --Count;
 
-                    }                    
-                }                
+                    return true;
 
+                }
             }
 
             return false;
