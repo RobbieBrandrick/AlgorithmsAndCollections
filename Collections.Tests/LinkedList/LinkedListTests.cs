@@ -343,7 +343,35 @@ namespace Collections.Tests.LinkedList
             }
 
         }
-        
+
+        public class Enumerate
+        {
+
+            [Fact]
+            public void MustForEachOverElements()
+            {
+                var sut = new LinkedList<int>();
+
+                const int maxItemsToPushBack = 100;
+                for (int i = 0; i < maxItemsToPushBack; i++)
+                {
+                    sut.PushBack(i);
+                }
+
+                int expectedItemValue = 0;
+
+                foreach (int item in sut)
+                {
+                    Assert.Equal(expectedItemValue, item);
+                    expectedItemValue++;
+                }
+
+                Assert.Equal(maxItemsToPushBack, expectedItemValue);
+
+            }
+
+        }
+
         [Fact]
         public void MustPushBackAndPushFront()
         {
