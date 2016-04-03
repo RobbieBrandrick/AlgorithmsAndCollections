@@ -18,8 +18,8 @@ namespace Algorithms
             if (lhs <= 1 || rhs <= 1)
                 throw new InvalidOperationException("paramters must be greater than 1");
 
-            List<long> lhsCommonFactors = Algorithms.Factors(lhs);
-            List<long> rhsCommonFactors = Algorithms.Factors(rhs);
+            List<long> lhsCommonFactors = Algorithms.FactorsBruteForce(lhs);
+            List<long> rhsCommonFactors = Algorithms.FactorsBruteForce(rhs);
 
             long gfc = 0;
 

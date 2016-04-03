@@ -10,7 +10,7 @@ namespace Algorithms
         /// </summary>
         /// <param name="n">The number to derive factors from</param>
         /// <returns>Factors of n</returns>
-		public static List<long> Factors(long n)
+		public static List<long> FactorsBruteForce(long n)
         {
 
             List<long> factors = new List<long>();
