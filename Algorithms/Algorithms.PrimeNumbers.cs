@@ -6,6 +6,15 @@ namespace Algorithms
     public static partial class Algorithms
     {
 
+        /// <summary>
+        /// Find all the prime numbers up to n.
+        /// </summary>
+        /// <param name="n">The number to find primes numbers up to</param>
+        /// <returns>All prime numbers up to n</returns>
+        /// <remarks>
+        /// The Sieve of Eratosthenes is an ancient algorithm for finding all prime numbers
+        /// up to any given limit (i.e., n).
+        /// </remarks>
         public static List<ulong> SieveOfEratosthenes(ulong n)
         {
 
