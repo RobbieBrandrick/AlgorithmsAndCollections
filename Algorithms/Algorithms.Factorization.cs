@@ -2,7 +2,7 @@
 
 namespace Algorithms
 {
-    public static partial class Math
+    public static partial class Algorithms
     {
 
 		/// <summary>

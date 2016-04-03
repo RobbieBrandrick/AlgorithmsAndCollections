@@ -56,10 +56,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Math.GCF.Tests.cs" />
+    <Compile Include="AlgorithmsGCFTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AlgorithmsFactorizationTests.cs" />
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>

@@ -1,10 +1,10 @@
 ﻿using System;
 using Xunit;
-
+using Algorithms;
 namespace Algorithms.Tests
 {
     
-    public class MathGCFTests
+    public class AlgorithmsGCFTests
     {
 
         [Theory]
@@ -15,8 +15,8 @@ namespace Algorithms.Tests
         public void TestGCF(long lhs, long rhs, long expectedResult)
         {
 
-            long result = Math.GCF(lhs, rhs);
-
+            long result = Algorithms.GCF(lhs, rhs);
+            
             Assert.Equal(expectedResult, result);
 
         }
@@ -24,10 +24,10 @@ namespace Algorithms.Tests
         public void MustThrowWhenParametersAreNotGreaterThanOne()
         {
 
-            Assert.Throws<InvalidOperationException>(() => Math.GCF(1, 1));
-            Assert.Throws<InvalidOperationException>(() => Math.GCF(1, 10));
-            Assert.Throws<InvalidOperationException>(() => Math.GCF(10, 1));
-            Assert.Throws<InvalidOperationException>(() => Math.GCF(-1, -10));
+            Assert.Throws<InvalidOperationException>(() => Algorithms.GCF(1, 1));
+            Assert.Throws<InvalidOperationException>(() => Algorithms.GCF(1, 10));
+            Assert.Throws<InvalidOperationException>(() => Algorithms.GCF(10, 1));
+            Assert.Throws<InvalidOperationException>(() => Algorithms.GCF(-1, -10));
 
         }
 
