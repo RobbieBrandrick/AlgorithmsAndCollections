@@ -7,6 +7,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Collections", "Collections\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Collections.Tests", "Collections.Tests\Collections.Tests.csproj", "{9C8F6121-019C-40F0-A895-8418875128AF}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ProjectEuler", "ProjectEuler", "{0E07F286-3A9B-44B6-A3E8-39C8C55AE305}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem 25 - 1000-digit Fibonacci number", "ProjectEuler\Problem 25 - 1000-digit Fibonacci number\Problem 25 - 1000-digit Fibonacci number.csproj", "{FD668CC8-03DE-4CEB-BF84-118364351B5B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem 24 - Lexicographic permutations", "ProjectEuler\Problem 24 - Lexicographic permutations\Problem 24 - Lexicographic permutations.csproj", "{DAA6E557-86A9-4392-B898-81CF3541C770}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,8 +27,20 @@ Global
 		{9C8F6121-019C-40F0-A895-8418875128AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9C8F6121-019C-40F0-A895-8418875128AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9C8F6121-019C-40F0-A895-8418875128AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD668CC8-03DE-4CEB-BF84-118364351B5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD668CC8-03DE-4CEB-BF84-118364351B5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD668CC8-03DE-4CEB-BF84-118364351B5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD668CC8-03DE-4CEB-BF84-118364351B5B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DAA6E557-86A9-4392-B898-81CF3541C770}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DAA6E557-86A9-4392-B898-81CF3541C770}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DAA6E557-86A9-4392-B898-81CF3541C770}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DAA6E557-86A9-4392-B898-81CF3541C770}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{FD668CC8-03DE-4CEB-BF84-118364351B5B} = {0E07F286-3A9B-44B6-A3E8-39C8C55AE305}
+		{DAA6E557-86A9-4392-B898-81CF3541C770} = {0E07F286-3A9B-44B6-A3E8-39C8C55AE305}
 	EndGlobalSection
 EndGlobal
