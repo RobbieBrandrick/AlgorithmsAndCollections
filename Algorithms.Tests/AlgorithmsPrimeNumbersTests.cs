@@ -31,6 +31,17 @@ namespace Algorithms.Tests
             }
 
             [Fact]
+            public void MustHavePrimeFactorsForEleven()
+            {
+
+                List<ulong> expectedResult = new List<ulong>() { 2, 3, 5, 7, 11 };
+                List<ulong> actualResult = Algorithms.SieveOfEratosthenes(11);
+
+                Assert.Equal(expectedResult, actualResult);
+
+            }
+
+            [Fact]
             public void MustHavePrimeFactorsForOneThousand()
             {
 

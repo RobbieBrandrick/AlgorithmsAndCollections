@@ -26,9 +26,9 @@ namespace Algorithms
                 throw new InvalidOperationException("n must be greater than 1");
 
             List<ulong> result = new List<ulong>();
-            char[] sieve = new char[n];
+            char[] sieve = new char[n + 1];
 
-            for(uint i = 2; i < n; i++)
+            for(uint i = 2; i <= n; i++)
             {
 
                 if (sieve[i] == 'X')
@@ -39,7 +39,7 @@ namespace Algorithms
                 sieve[i] = 'P';
                 result.Add(i);
 
-                for(uint j = i + i; j < n; j += i)
+                for(uint j = i + i; j <= n; j += i)
                 {
                     sieve[j] = 'X';
                 }
