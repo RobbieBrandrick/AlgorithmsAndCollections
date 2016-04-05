@@ -14,6 +14,10 @@ namespace Algorithms
         /// <remarks>
         /// The Sieve of Eratosthenes is an ancient algorithm for finding all prime numbers
         /// up to any given limit (i.e., n).
+        /// 
+        /// This isn't the exact algorithm, but one slightly adapted to return a list of
+        /// prime numbers up to N rather than the harder to interpret boolean.
+        /// 
         /// </remarks>
         public static List<ulong> SieveOfEratosthenes(ulong n)
         {
