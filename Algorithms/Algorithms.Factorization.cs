@@ -29,5 +29,32 @@ namespace Algorithms
 
         }
 
+
+        /// <summary>
+        /// Retrieve the prime factors of n
+        /// </summary>
+        /// <param name="n">The number to derive prime factors from</param>
+        /// <returns>Prime Factors of n</returns>
+        public static List<ulong> PrimeFactors(ulong n)
+        {
+
+            List<ulong> primeFactors = new List<ulong>();
+
+            List<ulong> primeNumbers = Algorithms.SieveOfEratosthenes(n);
+
+            foreach(ulong primeNumber in primeNumbers)
+            {
+
+                if(n % primeNumber == 0)
+                {
+                    primeFactors.Add(primeNumber);
+                }
+
+            }
+
+            return primeFactors;
+
+        }
+
     }
 }
