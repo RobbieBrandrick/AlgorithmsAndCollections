@@ -14,9 +14,9 @@ namespace Algorithms.Tests
             {
 
                 List<long> expectedResult = new List<long>() { 1, 2, 5, 10 };
-                List<long> factors = Algorithms.FactorsBruteForce(10);
+                List<long> actualResult = Algorithms.FactorsBruteForce(10);
 
-                Assert.Equal(expectedResult, factors);
+                Assert.Equal(expectedResult, actualResult);
 
             }
 
