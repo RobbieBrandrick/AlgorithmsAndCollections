@@ -12,16 +12,16 @@ namespace Algorithms
         /// <param name="lhs"></param>
         /// <param name="rhs"></param>
         /// <returns>The greatest common factor</returns>
-		public static long GCF(long lhs, long rhs)
+		public static ulong GCF(ulong lhs, ulong rhs)
         {
 
             if (lhs <= 1 || rhs <= 1)
                 throw new InvalidOperationException("paramters must be greater than 1");
 
-            List<long> lhsCommonFactors = Algorithms.FactorsBruteForce(lhs);
-            List<long> rhsCommonFactors = Algorithms.FactorsBruteForce(rhs);
+            List<ulong> lhsCommonFactors = Algorithms.FactorsBruteForce(lhs);
+            List<ulong> rhsCommonFactors = Algorithms.FactorsBruteForce(rhs);
 
-            long gfc = 0;
+            ulong gfc = 0;
 
             lhsCommonFactors.Sort();
 

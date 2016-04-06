@@ -13,8 +13,8 @@ namespace Algorithms.Tests
             public void MustReturnTheFactorsOfTen()
             {
 
-                List<long> expectedResult = new List<long>() { 1, 2, 5, 10 };
-                List<long> actualResult = Algorithms.FactorsBruteForce(10);
+                List<ulong> expectedResult = new List<ulong>() { 1, 2, 5, 10 };
+                List<ulong> actualResult = Algorithms.FactorsBruteForce(10);
 
                 Assert.Equal(expectedResult, actualResult);
 

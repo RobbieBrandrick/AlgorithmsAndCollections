@@ -10,12 +10,12 @@ namespace Algorithms
         /// </summary>
         /// <param name="n">The number to derive factors from</param>
         /// <returns>Factors of n</returns>
-		public static List<long> FactorsBruteForce(long n)
+		public static List<ulong> FactorsBruteForce(ulong n)
         {
 
-            List<long> factors = new List<long>();
+            List<ulong> factors = new List<ulong>();
 
-			for(long i = 1; i <= n; i++)
+			for(ulong i = 1; i <= n; i++)
             {
 
 				if(n % i == 0)
