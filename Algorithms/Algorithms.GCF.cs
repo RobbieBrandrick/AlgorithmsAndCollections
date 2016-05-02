@@ -18,26 +18,26 @@ namespace Algorithms
             if (lhs <= 1 || rhs <= 1)
                 throw new InvalidOperationException("paramters must be greater than 1");
 
-            List<ulong> lhsCommonFactors = Algorithms.FactorsBruteForce(lhs);
-            List<ulong> rhsCommonFactors = Algorithms.FactorsBruteForce(rhs);
-
-            ulong gfc = 0;
-
-            lhsCommonFactors.Sort();
-
-            for(int i = lhsCommonFactors.Count - 1; i >= 0; i--)
+            while (true)
             {
 
-                if (rhsCommonFactors.Contains(lhsCommonFactors[i]))
+                //E0[swap] if lhs < rhs
+                if (lhs < rhs)
                 {
-                    gfc = lhsCommonFactors[i];
-                    break;
+                    lhs = lhs ^ rhs;
+                    rhs = lhs ^ rhs;
+                    lhs = lhs ^ rhs;
                 }
 
+                ulong r = lhs % rhs;
+
+                if (r == 0)
+                    return rhs;
+
+                lhs = rhs;
+                rhs = r;
             }
-
-            return gfc;
-
+            
         }
     }
 }

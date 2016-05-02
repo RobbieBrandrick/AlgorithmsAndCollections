@@ -12,6 +12,7 @@ namespace Algorithms.Tests
         [InlineData(5, 10, 5)]
         [InlineData(63, 81, 9)]
         [InlineData(49, 14, 7)]
+        [InlineData(54, 27, 27)]
         public void TestGCF(ulong lhs, ulong rhs, ulong expectedResult)
         {
 
