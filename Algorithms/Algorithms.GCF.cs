@@ -21,16 +21,16 @@ namespace Algorithms
             if (lhs <= 1 || rhs <= 1)
                 throw new InvalidOperationException("paramters must be greater than 1");
 
+            //E0[swap] if lhs < rhs
+            if (lhs < rhs)
+            {
+                lhs = lhs ^ rhs;
+                rhs = lhs ^ rhs;
+                lhs = lhs ^ rhs;
+            }
+
             while (true)
             {
-
-                //E0[swap] if lhs < rhs
-                if (lhs < rhs)
-                {
-                    lhs = lhs ^ rhs;
-                    rhs = lhs ^ rhs;
-                    lhs = lhs ^ rhs;
-                }
 
                 //E1[Find remainder] let r be the remainder of lhs / rhs
                 ulong r = lhs % rhs;
